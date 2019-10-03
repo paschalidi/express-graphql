@@ -22,6 +22,10 @@ export class LoginResolver {
       return null;
     }
 
+    if (!user.confirmed) {
+      return null;
+    }
+
     context.req.session!.userId = user.id;
 
     return user;
